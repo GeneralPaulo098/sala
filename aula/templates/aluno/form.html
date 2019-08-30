@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block conteudo %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+<form action="/aula/aluno/create/" method="POST">
+    {% csrf_token %}
+    <h1>Novo aluno</h1>
+    <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Nome</span>
+        </div>
+        {{form.nome}}
+        {{form.nome.errors}}
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">matricula</span>
+        </div>
+        {{form.matricula}}
+        {{form.matricula.errors}}
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">cpf</span>
+        </div>
+        {{form.cpf}}
+        {{form.cpf.errors}}
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">sexo</span>
+        </div>
+        {{form.sexo}}
+        {{form.sexo.errors}}
+    </div>
+
+    <div class="input-group mb-3">
+        <button type="submit" class="btn btn-primary">OK</button>
+    </div>
+</form>
+{% endblock %}

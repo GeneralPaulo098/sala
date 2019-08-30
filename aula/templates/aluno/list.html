@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">matricula</th>
+            <th scope="col">sexo</th>
+            <th scope="col">cpf</th>
+            <th scope="col">ver</th>
+            <th scope="col">editar</th>
+            <th scope="col">Apagar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for aluno in alunos %}
+            <tr>
+                <td>{{aluno.id}}</td>
+                <td>{{aluno.nome}}</td>
+                <td>{{aluno.matricula}}</td>
+                <td>{{aluno.cpf}}</td>
+                <td>{{aluno.sexo}}</td>
+                <td><a href="/aula/aluno/show/{{aluno.id}}">ver</a></td>
+                <td><a href="/aula/aluno/editar/{{aluno.id}}">editar</a></td>
+                <td><a href="/aula/aluno/{{aluno.id}}">apagar</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<p></p>
+{% endblock %}
